@@ -22,13 +22,13 @@ export default class Megoldas {
         let szavazatok: number = 0;
         for (let index = 0; index < this.jeloltekSzama; index++) {
             if (this.#jeloltek[index].nev == name) {
-                szavazatok++;
+                szavazatok += this.#jeloltek[index].szavazatok;
             }
         }
         if (szavazatok != 0) {
             return `3. feladat: ${name}-ra/re leadott szavazatok száma: ${szavazatok}`;
         } else {
-            return "Ilyen  nevű  képviselőjelölt  nem  szerepel a nyilvántartásban!";
+            return "3. feladat: Ilyen  nevű  képviselőjelölt  nem  szerepel a nyilvántartásban!";
         }
     }
 }
