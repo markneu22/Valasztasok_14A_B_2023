@@ -26,7 +26,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
 
     // Kezd a kódolást innen -->
     const m: Megoldas = new Megoldas("szavazatok.txt");
-    res.write(`2. feladat: A helyhatósági választáson ${m.jeloltekSzama} képviselőjelölt indult.`);
+    res.write(`Teszt.`);
+    res.write(`2. feladat: A helyhatósági választáson ${m.jeloltekSzama} képviselőjelölt indult. Teszt?`);
     // <---- Fejezd be a kódolást
 
     res.write("</pre></form></body></html>");
