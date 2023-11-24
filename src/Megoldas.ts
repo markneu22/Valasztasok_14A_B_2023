@@ -39,4 +39,15 @@ export default class Megoldas {
         }
         return szam;
     }
+    partArany(): Map<string, number> {
+        const ret = new Map<string, number>();
+        for (let index = 0; index < this.#jeloltek.length; index++) {
+            if (!ret.has(this.#jeloltek[index].part)) {
+                ret.set(this.#jeloltek[index].part, 0);
+            } else {
+                ret.set(this.#jeloltek[index].part, ret.get(this.#jeloltek[index].part)! + this.#jeloltek[index].szavazatok);
+            }
+        }
+        return ret;
+    }
 }
