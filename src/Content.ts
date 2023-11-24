@@ -26,8 +26,12 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
 
     // Kezd a kódolást innen -->
     const m: Megoldas = new Megoldas("szavazatok.txt");
+    let nev: string = params.get("nev") as string;
+    if (!nev) nev = "Fasirt Ferenc";
     res.write(`2. feladat: A helyhatósági választáson ${m.jeloltekSzama} képviselőjelölt indult.\n`);
-    res.write(`${m.jeloltSzavazatok("Ablak Antal")}`);
+    res.write(`<label>Adja meg a képviselő nevét! <input type='text' name='nev' value='${nev}' style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
+    res.write(`Te ${nev} vagy!\n`);
+    res.write(`${m.jeloltSzavazatok(nev)}`);
     // <---- Fejezd be a kódolást
 
     res.write("</pre></form></body></html>");
