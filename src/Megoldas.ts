@@ -50,4 +50,13 @@ export default class Megoldas {
         }
         return ret;
     }
+    legtobbSzavat(): Jelolt {
+        let legnagyobbJelolt: Jelolt = this.#jeloltek[0];
+        for (let index = 0; index < this.#jeloltek.length; index++) {
+            if (this.#jeloltek[index].szavazatok > legnagyobbJelolt.szavazatok) {
+                legnagyobbJelolt = this.#jeloltek[index];
+            }
+        }
+        return legnagyobbJelolt;
+    }
 }

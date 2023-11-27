@@ -32,10 +32,12 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`<label>Adja meg a képviselő nevét! <input type='text' name='nev' value='${nev}' style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
     res.write(`Te ${nev} vagy!\n`);
     res.write(`${m.jeloltSzavazatok(nev)}\n`);
-    res.write(`A választáson ${m.szavazatArany()} állampolgár, a jogosultak ${((m.szavazatArany() / 12345) * 100).toFixed(2)}%-a vett részt.\n`);
+    res.write(`4. feladat: A választáson ${m.szavazatArany()} állampolgár, a jogosultak ${((m.szavazatArany() / 12345) * 100).toFixed(2)}%-a vett részt.\n`);
+    res.write("5. feladat: Statisztika\n");
     m.partArany().forEach((value, key) => {
-        res.write(`${key}= ${((value / 4713) * 100).toFixed(2)}\n`);
+        res.write(`${key}= ${((value / 4713) * 100).toFixed(2)}%\n`);
     });
+    res.write(`6. feladat: Legtöbb szavazattal rendelkező jelölt:\nKerület: ${m.legtobbSzavat().kerulet}\nNév: ${m.legtobbSzavat().nev}\nPárt: ${m.legtobbSzavat().part}`);
     // <---- Fejezd be a kódolást
 
     res.write("</pre></form></body></html>");
